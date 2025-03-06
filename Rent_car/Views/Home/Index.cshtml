@@ -1,0 +1,72 @@
+﻿@model List< Rent_car.Models.TbCar>
+<!-- Home slider -->
+<section class="p-0">
+    <div class="slide-1 home-slider">
+      
+            <div>
+                <div class="home  text-center">
+                    <img src="~/FrontEnd/Images/banner4.jpg" alt="" class="bg-img blur-up lazyload">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+    </div>
+</section>
+<!-- Home slider end -->
+<!-- Paragraph-->
+<div class="title1 section-t-space">
+    <h4>special offer</h4>
+    <h2 class="title-inner1">top collection</h2>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="product-para">
+                <p class="text-center">
+                    Here is our sport cars
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Paragraph end -->
+<!-- Product slider -->
+<section class="section-b-space p-t-0 ratio_asos">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="product-4 product-m no-arrow">
+                    @foreach (var item in Model)
+                    {
+                        <div class="product-box">
+                            <div class="img-wrapper">
+                                <div class="lable-block"><span class="lable3">new</span> <span class="lable4">on sale</span></div>
+                                <div class="front">
+                                    <a asp-controller="Show_Car" asp-action="Main" asp-route-id="@item.CarId" class="bg-size blur-up lazyload" style="background-image: url(&quot;~/FrontEnd/images/pro3/33.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="~/FrontEnd/Images/@item.ImageName" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                                </div>
+                                <div class="back">
+                                    <a asp-controller="Show_Car" asp-action="Main" asp-route-id="@item.CarId" class="bg-size blur-up lazyload" style="background-image: url(&quot;~/FrontEnd/images/pro3/34.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="~/FrontEnd/Images/@item.ImageName" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                                </div>
+
+                            </div>
+                            <div class="product-detail">
+                                <a href="product-page(no-sidebar).html">
+                                    <h6>@item.CarName</h6>
+                                    
+                                </a>
+                                <h4>$@item.Price</h4>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

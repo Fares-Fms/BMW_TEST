@@ -1,0 +1,152 @@
+﻿@model VmCar
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>@Model.CarDetails.CarName</h2>
+                </div>
+            </div>
+       
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section>
+    <div class="collection-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="product-slick">
+                        <div>
+                            <img src="~/FrontEnd/Images/@Model.CarDetails.ImageName" alt=""
+                                 class="img-fluid blur-up lazyload image_zoom_cls-0">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 rtl-text">
+                    <div class="product-right">
+                        <h2 class="mb-0">@Model.CarDetails.CarName</h2>
+                        <h4><span>$ @Model.CarDetails.Price </span></h4>
+
+                        <div class="product-description border-product">
+
+                            <div class="modal fade" id="sizemodal" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Sheer Straight Kurta</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="~/FrontEnd/images/size-chart.jpg" alt=""
+                                                 class="img-fluid blur-up lazyload">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content nav-material" id="">
+                                <div class="">
+                                    <div class="table">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Engine</td>
+                                                    <td>@Model.CarDetails.Engine</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Horse Power</td>
+                                                    <td>@Model.CarDetails.Hp</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fuel</td>
+                                                    <td>@Model.CarDetails.Fuel</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Range By 1 liter</td>
+                                                    <td>@Model.CarDetails.Range Km</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Model</td>
+                                                    <td>@Model.CarDetails.Model</td>
+                                                </tr> 
+
+                                            </tbody>
+
+                                           
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="product-buttons">
+                            <a class="btn btn-solid" asp-controller="ShopingCart" asp-action="Buy" asp-route-id="@Model.CarDetails.CarId"> BUY</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section ends -->
+<!-- product-tab starts -->
+<!-- product-tab ends -->
+<!-- product section start -->
+          
+<section class="section-b-space ratio_asos">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 product-related">
+                <h2>related products</h2>
+            </div>
+        </div>
+        <div class="row search-product">
+            @foreach (var item in Model.RecommendedCar)
+            {
+                <div class="col-xl-2 col-md-4 col-sm-6">
+                    <div class="product-box">
+                        <div class="img-wrapper">
+                            <div class="front">
+                                <a asp-controller="Show_Car" asp-action="Main" asp-route-Id="@item.CarId">
+                                    <img src="~/FrontEnd/Images/@item.ImageName"
+                                         class="img-fluid blur-up lazyload bg-img" alt="">
+                                </a>
+                            </div>
+                            <div class="back">
+                                <a asp-controller="Show_Car" asp-action="Main" asp-route-Id="@item.CarId">
+                                    <img src="~/FrontEnd/Images/@item.ImageName"
+                                         class="img-fluid blur-up lazyload bg-img" alt="">
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="product-detail">
+
+                            <a href="product-page(no-sidebar).html">
+                                <h6>@item.CarName</h6>
+
+                            </a>
+                            <h4>$@item.Price</h4>
+
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- product section end -->

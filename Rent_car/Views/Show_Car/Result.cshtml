@@ -1,0 +1,65 @@
+﻿
+@model List<TbCar>
+
+    <!-- breadcrumb start -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="page-title">
+                        <h2>Search Result</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb End -->
+
+  
+    <section class="section-b-space ratio_asos">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    @if (Model.Count == 0)
+                    {
+                        <center>
+                            <h2>Sorry we don't have that car</h2>
+                        </center>
+                    }else{
+                    <div class="no-slider row">
+                    
+                    @foreach(var item in Model)
+                    {
+                        
+                        <div class="product-box">
+                            <div class="img-wrapper">
+                                <div class="lable-block"><span class="lable3">new</span> <span class="lable4">on sale</span></div>
+                                <div class="front">
+                                    <a asp-controller="Show_Car" asp-action="Main" asp-route-id="@item.CarId" class="bg-size blur-up lazyload" style="background-image: url(&quot;~/FrontEnd/images/pro3/33.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="~/FrontEnd/Images/@item.ImageName" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                                </div>
+                                <div class="back">
+                                    <a asp-controller="Show_Car" asp-action="Main" asp-route-id="@item.CarId" class="bg-size blur-up lazyload" style="background-image: url(&quot;~/FrontEnd/images/pro3/34.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="~/FrontEnd/Images/@item.ImageName" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                                </div>
+                               
+                            </div>
+                            <div class="product-detail">
+                                <a href="product-page(no-sidebar).html">
+                                    <h6>@item.CarName</h6>
+                                  
+                                </a>
+                                <h4>$@item.Price</h4>
+                               
+                            </div>
+                        </div>
+                    }
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+  
